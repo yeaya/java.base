@@ -20,14 +20,6 @@
 
 #include <java/lang/interpreter/ByteCodeInterpreter.h>
 
-#include <limits>
-#include <string>
-#include <cmath>
-#include <cstdlib>
-
-#include "opcodes.h"
-#include <math.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/RuntimeException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -66,8 +58,10 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/interpreter/opcodes.h>
 
 #include <jcpp.h>
+#include <cmath>
 
 using namespace ::java::lang;
 using _Array = ::java::lang::reflect::Array;
@@ -75,7 +69,6 @@ using namespace ::java::lang::reflect;
 using namespace ::java::lang::invoke;
 using namespace ::java::util;
 using namespace ::jdk::internal::reflect;
-using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace java {
 	namespace lang {
@@ -142,9 +135,9 @@ enum class ArrayPrimitiveTypes {
 };
 
 ThreadLocal* ByteCodeInterpreter::currentInterpreters = nullptr;
-$Class* ByteCodeInterpreter::class$ = nullptr;
+Class* ByteCodeInterpreter::class$ = nullptr;
 Class* ByteCodeInterpreter::load$(String* name, bool initialize) {
-	static $ClassInfo _ClassInfo_ = {
+	static ClassInfo _ClassInfo_ = {
 		$PUBLIC,
 		"java.lang.interpreter.ByteCodeInterpreter",
 		"java.lang.Object"
@@ -197,8 +190,14 @@ void ByteCodeInterpreter::initStackTraceElements(Frame* frame, $Array<StackTrace
 			if (ste != nullptr) {
 				$set(ste, declaringClass, byteCodeClass->name);
 				$set(ste, methodName, frame->byteCodeMethod->name);
-				$set(ste, fileName, ""_s);
-				ste->lineNumber = -1;
+				$var(ByteCodeClassData, bccd, byteCodeClass->getByteCodeClassData(false));
+				if (bccd != nullptr && bccd->sourceFile != nullptr) {
+					$set(ste, fileName, bccd->sourceFile);
+					ste->lineNumber = frame->byteCodeMethod->findLineNumber(static_cast<uint16_t>(frame->pc));
+				} else {
+					$set(ste, fileName, ""_s);
+					ste->lineNumber = -1;
+				}
 				$set(ste, declaringClassObject, byteCodeClass);
 				elements->set(elementsIndex++, ste);
 			}
@@ -1025,16 +1024,10 @@ inline void ByteCodeInterpreter::executeInstruction() {
 			case OpCodes::tableswitch: {
 				// skip opcode + 0-3 bytes of padding
 				align4(pos);
-
 				int32_t default_ = consumeUint32(code, pos);
 				int32_t low = consumeUint32(code, pos);
 				int32_t high = consumeUint32(code, pos);
-
-				assert(low <= high);
-
-	//			s4 count  = high - low + 1;
 				int32_t index = frame->popInt32();
-
 				int32_t offset;
 				if (index < low || index > high) {
 					offset = default_;
@@ -1048,14 +1041,10 @@ inline void ByteCodeInterpreter::executeInstruction() {
 			case OpCodes::lookupswitch: {
 				// skip opcode + 0-3 bytes of padding
 				align4(pos);
-
 				int32_t default_ = consumeUint32(code, pos);
 				int32_t npairs = consumeUint32(code, pos);
-				assert(npairs >= 0);
-
 				int32_t key = frame->popInt32();
 				int32_t offset = default_;
-
 				for (int32_t i = 0; i < npairs; ++i) {
 					int32_t match = consumeUint32(code, pos);
 					if (key == match) {
@@ -1191,43 +1180,43 @@ inline void ByteCodeInterpreter::executeInstruction() {
 				int32_t type = consumeUint8(code, pos);
 				switch (static_cast<ArrayPrimitiveTypes>(type)) {
 					case ArrayPrimitiveTypes::T_INT: {
-						$var(Object, reference, $new($ints, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($ints, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_BOOLEAN: {
-						$var(Object, reference, $new($booleans, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($booleans, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_CHAR: {
-						$var(Object, reference, $new($chars, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($chars, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_FLOAT: {
-						$var(Object, reference, $new($floats, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($floats, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_DOUBLE: {
-						$var(Object, reference, $new($doubles, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($doubles, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_BYTE: {
-						$var(Object, reference, $new($bytes, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($bytes, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_SHORT: {
-						$var(Object, reference, $new($shorts, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($shorts, count));
+						frame->pushObject(obj);
 						break;
 					}
 					case ArrayPrimitiveTypes::T_LONG: {
-						$var(Object, reference, $new($longs, count));
-						frame->pushObject(reference);
+						$var(Object, obj, $new($longs, count));
+						frame->pushObject(obj);
 						break;
 					}
 				}
@@ -1278,23 +1267,23 @@ inline void ByteCodeInterpreter::executeInstruction() {
 				ConstantPool* constantPool = getConstantPool();
 				ConstantClass* constantClass = constantPool->getClass(index);
 				Class* clazz = this->loadClass($nc(constantClass)->utf8);;
-				$var(Object, objectref, frame->popObject());
-				if (objectref == nullptr) {
+				$var(Object, obj, frame->popObject());
+				if (obj == nullptr) {
 					frame->pushBool(false);
 				} else {
-					bool ret = clazz->isInstance(objectref);
+					bool ret = clazz->isInstance(obj);
 					frame->pushBool(ret);
 				}
 				break;
 			}
 			case OpCodes::monitorenter: {
-				$var(Object, reference, frame->popObject());
-				$sureObject0(reference)->lock();
+				$var(Object, obj, frame->popObject());
+				$sureObject0(obj)->lock();
 				break;
 			}
 			case OpCodes::monitorexit: {
-				$var(Object, reference, frame->popObject());
-				$sureObject0(reference)->unlock();
+				$var(Object, obj, frame->popObject());
+				$sureObject0(obj)->unlock();
 				break;
 			}
 			case OpCodes::wide: {
@@ -1406,13 +1395,13 @@ void ByteCodeInterpreter::handleThrow() {
 		bool matched = false;
 		for (; index < exceptionTable.size(); index++) {
 			ExceptionTableEntry& e = exceptionTable[index];
-			if (e.start_pc <= frame->pc && frame->pc < e.end_pc) {
-				if (e.catch_type == 0) {
+			if (e.startPc <= frame->pc && frame->pc < e.endPc) {
+				if (e.catchType == 0) {
 					matched = true;
 					break;
 				} else {
 					ConstantPool* constantPool = getConstantPool();
-					ConstantClass* constantClass = constantPool->getClass(e.catch_type);
+					ConstantClass* constantClass = constantPool->getClass(e.catchType);
 					$var(String, className, $nc(constantClass)->utf8->replace('/', '.'));
 					Class* c = currentException->getClass();
 					while (c != nullptr) {
@@ -1437,7 +1426,7 @@ void ByteCodeInterpreter::handleThrow() {
 		} else {
 			frame->clear();
 			frame->pushObject(currentException);
-			frame->pc = exceptionTable[index].handler_pc;
+			frame->pc = exceptionTable[index].handlerPc;
 			$set(this, currentException, nullptr);
 			return;
 		}
@@ -1456,11 +1445,16 @@ void ByteCodeInterpreter::popFrame() {
 	}
 }
 
-//Class* Frame::class$ = nullptr;
-//Class* Frame::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
+Class* Frame::class$ = nullptr;
+Class* Frame::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.Frame",
+		"java.lang.Object"
+	};
+	$loadClass(Frame, name, initialize, &_ClassInfo_);
+	return class$;
+}
 
 Frame::Frame() {
 }
@@ -2203,7 +2197,7 @@ void ByteCodeInterpreter::virtualCall(MethodCache* methodCache) {
 	}
 	int32_t localIndex = frame->firstOperandIndex + frame->operandsTop - stackSlotsForParameters - frame->firstLocalIndex;
 	$var(Object, this_obj, frame->getLocalPointer(localIndex));
-	$Class* clazz = $toObject0(this_obj)->getClass();
+	Class* clazz = $toObject0(this_obj)->getClass();
 	if (method->clazz != clazz) {
 		ByteCodeMethod* bcMethod = nullptr;
 		if (clazz->byteCodeClass) {

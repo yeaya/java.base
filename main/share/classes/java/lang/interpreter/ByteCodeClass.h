@@ -84,16 +84,22 @@ enum class MethodInfoAccessFlags : uint16_t {
 
 class ExceptionTableEntry {
 public:
-	uint16_t start_pc;
-	uint16_t end_pc;
-	uint16_t handler_pc;
-	uint16_t catch_type;
+	uint16_t startPc;
+	uint16_t endPc;
+	uint16_t handlerPc;
+	uint16_t catchType;
+};
+
+class LineNumberTableEntry {
+public:
+	uint16_t startPc;
+	uint16_t lineNumber;
 };
 
 class ByteCodeClass;
 
 class ByteCodeMethod : public $Object {
-	//$class(ByteCodeMethod, $NO_CLASS_INIT, $Object)
+	$class(ByteCodeMethod, $NO_CLASS_INIT, $Object)
 public:
 	ByteCodeMethod() {
 
@@ -121,14 +127,28 @@ public:
 	uint16_t stackSlotsForParameters;
 
 	uint8_t returnCategory; // 0, 1, 2
+	std::vector<LineNumberTableEntry> lineNumberTable;
 
-	inline bool is_static() const {
+	int32_t findLineNumber(uint16_t startPc) {
+		int32_t lineNumber = -1;
+		for (size_t i = 0; i < lineNumberTable.size(); ++i) {
+			LineNumberTableEntry& entry = lineNumberTable[i];
+			if (startPc >= entry.startPc) {
+				lineNumber = entry.lineNumber;
+			} else {
+				break;
+			}
+		}
+		return lineNumber;
+	}
+
+	inline bool isStatic() const {
 		return (accessFlags & static_cast<uint16_t>(MethodInfoAccessFlags::ACC_STATIC)) != 0;
 	}
 };
 
 class VfptrInfo : public $Object {
-	//$class(VfptrInfo, $NO_CLASS_INIT, $Object)
+	$class(VfptrInfo, $NO_CLASS_INIT, $Object)
 public:
 	VfptrInfo();
 	void init$() {}
@@ -142,20 +162,20 @@ public:
 };
 
 class BootstrapMethod : public $Object {
-	//$class(BootstrapMethod, $NO_CLASS_INIT, $Object)
+	$class(BootstrapMethod, $NO_CLASS_INIT, $Object)
 public:
 	$Object* methodHandle = nullptr;
 	$ObjectArray* bootstrapArguments = nullptr;
 };
 
 class ByteCodeClassData : public $Object {
-	//$class(ByteCodeClassData, $NO_CLASS_INIT, $Object)
+	$class(ByteCodeClassData, $NO_CLASS_INIT, $Object)
 public:
 	void init$();
 	void parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classInfo);
 	void parseFieldAttributes(::java::io::DataInputStream* is, ::java::lang::FieldInfo* fieldInfo);
 	void parseMethodAttributes(::java::io::DataInputStream* is, ::java::lang::MethodInfo* methodInfo, ByteCodeMethod* byteCodeMethod);
-	void parseMethodCodeAttributes(::java::io::DataInputStream* is, ::java::lang::MethodInfo* methodInfo);
+	void parseMethodCodeAttributes(::java::io::DataInputStream* is, ::java::lang::MethodInfo* methodInfo, ByteCodeMethod* byteCodeMethod);
 	void parseClassAttributes(::java::io::DataInputStream* is, ClassInfo* classInfo);
 	void parseCompoundAttribute(::java::io::DataInputStream* is, CompoundAttribute* compoundAttribute);
 	void parseNamedAttribute(::java::io::DataInputStream* is, NamedAttribute* namedAttribute);
@@ -175,6 +195,8 @@ public:
 	bool overridedFinalize = false;
 	bool cloneable = false;
     int clinitIndex = -1;
+	int mainClassIndex = -1;
+	$String* sourceFile = nullptr;
 	::java::util::ArrayList* byteCodeMethods = nullptr;
 	::jdk::internal::reflect::ConstantPool* constantPool = nullptr;
 	::java::util::HashMap* methodCacheMap = nullptr;
@@ -183,7 +205,7 @@ public:
 };
 
 class MethodCache : public $Object {
-	//$class(MethodCache, $NO_CLASS_INIT, $Object)
+	$class(MethodCache, $NO_CLASS_INIT, $Object)
 public:
 	$Object* method = nullptr;
 	$ClassArray* argsTypes = nullptr;
@@ -235,4 +257,4 @@ public:
     } // lang
 } // java
 
-#endif //_java_lang_interpreter_ByteCodeClass_h_
+#endif // _java_lang_interpreter_ByteCodeClass_h_

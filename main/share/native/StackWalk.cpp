@@ -1079,6 +1079,8 @@ bool isSkipReflectMethodFunction(const char* fn) {
 bool isSkipReflectConstructorFunction(const char* fn) {
 	static char* functions[] = {
 		"initInstance",
+		"newInstance",
+		"newInstanceWithCaller"
 	};
 	return isInFunctions(fn, functions, $lengthOf(functions));
 }
@@ -1087,6 +1089,8 @@ bool isInSkipClasses(const char* clazz) {
 	static char* skipClasses[] = {
 		"jdk::internal::reflect::NativeMethodAccessorImpl",
 		"jdk::internal::reflect::DelegatingMethodAccessorImpl",
+		"jdk::internal::reflect::NativeConstructorAccessorImpl",
+		"jdk::internal::reflect::DelegatingConstructorAccessorImpl",
 		"java::lang::interpreter",
 		"java::lang::Platform"
 	};

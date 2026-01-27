@@ -178,7 +178,7 @@ bool MethodCache::hasThisArg() {
 		ret = true;
 	} else {
 		ByteCodeMethod* byteCodeMethod = $fcast<ByteCodeMethod>(method);
-		if (!byteCodeMethod->is_static()) {
+		if (!byteCodeMethod->isStatic()) {
 			ret = true;
 		}
 	}
@@ -779,13 +779,13 @@ void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* m
 			byteCodeMethod->exceptionTable.reserve(exceptionTableLength);
 			for (int i = 0; i < exceptionTableLength; ++i) {
 				ExceptionTableEntry entry{};
-				entry.start_pc = is->readShort();
-				entry.end_pc = is->readShort();
-				entry.handler_pc = is->readShort();
-				entry.catch_type = is->readShort();
+				entry.startPc = is->readShort();
+				entry.endPc = is->readShort();
+				entry.handlerPc = is->readShort();
+				entry.catchType = is->readShort();
 				byteCodeMethod->exceptionTable.push_back(entry);
 			}
-			this->parseMethodCodeAttributes(is, methodInfo);
+			this->parseMethodCodeAttributes(is, methodInfo, byteCodeMethod);
 		} else if (s->equals("StackMapTable")) {
 			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
@@ -843,30 +843,24 @@ void ByteCodeClassData::parseMethodAttributes(DataInputStream* is, MethodInfo* m
 	}
 }
 
-void ByteCodeClassData::parseMethodCodeAttributes(DataInputStream* is, MethodInfo* methodInfo) {
+void ByteCodeClassData::parseMethodCodeAttributes(DataInputStream* is, MethodInfo* methodInfo, ByteCodeMethod* byteCodeMethod) {
 	uint16_t attributesCount = is->readShort();
 	for (int32_t attributeIndex = 0; attributeIndex < attributesCount; ++attributeIndex) {
 		uint16_t nameIndex = is->readShort();
 		int32_t attributeLength = is->readInt();
 		$var(String, s, constantPool->getUTF8(nameIndex));
-
 		if (s->equals("StackMapTable")) {
-		//	info = new StackMapTable_attribute();
-			// I think/hope this is only used for verification
 			for (int32_t i = 0; i < attributeLength; ++i) {
 				is->readByte();
 			}
-		//} else if (s->equals("LineNumberTable")) {
-		//	LineNumberTable_attribute* attribute = new LineNumberTable_attribute;
-		//	u2 line_number_table_length = is->readShort();
-		//	attribute->line_number_table.reserve(line_number_table_length);
-		//	for (int32_t i = 0; i < line_number_table_length; ++i) {
-		//		LineNumberTableEntry entry{};
-		//		entry.start_pc = is->readShort();
-		//		entry.line_number = is->readShort();
-		//		attribute->line_number_table.push_back(entry);
-		//	}
-		//	info = attribute;
+		} else if (s->equals("LineNumberTable")) {
+			uint16_t lineNumberTableLength = is->readShort();
+			for (int32_t i = 0; i < lineNumberTableLength; ++i) {
+				LineNumberTableEntry entry{};
+				entry.startPc = is->readShort();
+				entry.lineNumber = is->readShort();
+				byteCodeMethod->lineNumberTable.push_back(entry);
+			}
 		} else if (s->equals("AnnotationDefault")) {
 			Attribute attr(0, nullptr);
 			this->parseAttribute(is, &attr);
@@ -887,29 +881,17 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 		int32_t attributeLength = is->readInt();
 		$var(String, s, constantPool->getUTF8(nameIndex));
 		if (s->equals("Signature")) {
-			int16_t utf8Index = is->readShort();
+			uint16_t utf8Index = is->readShort();
 			if (classInfo != nullptr && utf8Index > 0) {
 				$var(String, signature, constantPool->getUTF8(utf8Index));
 				classInfo->signature = this->makeCharPtrForClassInfo(signature);
 			}
-		//}
-		// TODO
-		//else if (s->equals("SourceFile")) {
-		//	SourceFile_attribute* attribute = new SourceFile_attribute;
-		//	attribute->sourcefile_index = (CONSTANT_Utf8_info*)check_cp_range_and_type(is->readShort(),
-		//		CONSTANT_Utf8_info_type);
-		//	info = attribute;
-		//}
-		// TODO
-		//else if (s->equals("SourceDebugExtension")) {
-		//	SourceDebugExtension_attribute* attribute = new SourceDebugExtension_attribute;
-		//	_assign(attribute->debug_extension, is->readString(attributeLength));
-		//	info = attribute;
-		//}
-		// TODO
-		//else if (s->equals("Deprecated")) {
-		//	info = new Deprecated_attribute;
-		//}
+		} else if (s->equals("SourceFile")) {
+			uint16_t utf8Index = is->readShort();
+			$var(String, sourceFile, constantPool->getUTF8(utf8Index));
+			if (sourceFile != nullptr) {
+				$set(this, sourceFile, sourceFile);
+			}
 		} else if (s->equals("BootstrapMethods")) {
 			uint16_t numBootstrapMethods = is->readShort();
 			$set(this, bootstrapMethods, $new($Array<BootstrapMethod>, numBootstrapMethods));
@@ -930,10 +912,8 @@ void ByteCodeClassData::parseClassAttributes(DataInputStream* is, ClassInfo* cla
 					bootstrapMethod->bootstrapArguments->set(j, arg);
 				}
 			}
-		//else if (s->equals("ModuleMainClass")) {
-		//	ModuleMainClass_attribute* attribute = new ModuleMainClass_attribute;
-		//	attribute->mainClassIndex = is->readShort();
-		//	info = attribute;
+		} else if (s->equals("ModuleMainClass")) {
+			this->mainClassIndex = is->readShort();
 		} else if (s->equals("InnerClasses")) {
 			uint16_t number_of_classes = is->readShort();
 			InnerClassInfo* innerClass = nullptr;
@@ -1387,7 +1367,7 @@ void ByteCodeClassData::parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classI
 
 			$var($StringArray, sa, Class::parseMethodDescriptor(descriptor));
 			bcMethod->parameterCount = sa->length - 1;
-			bcMethod->stackSlotsForParameters = bcMethod->is_static() ? 0 : 1;
+			bcMethod->stackSlotsForParameters = bcMethod->isStatic() ? 0 : 1;
 			for (int32_t i = 0; i < bcMethod->parameterCount; i++) {
 				bcMethod->stackSlotsForParameters += getCategory(sa->get(i));
 			}
@@ -1405,38 +1385,63 @@ void ByteCodeClassData::parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classI
 	parseClassAttributes(is, classInfo);
 }
 
-//Class* ByteCodeMethod::class$ = nullptr;
-//Class* ByteCodeMethod::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
-//
-//Class* VfptrInfo::class$ = nullptr;
-//Class* VfptrInfo::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
+Class* ByteCodeMethod::class$ = nullptr;
+Class* ByteCodeMethod::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.ByteCodeMethod",
+		"java.lang.Object"
+	};
+	$loadClass(ByteCodeMethod, name, initialize, &_ClassInfo_);
+	return class$;
+}
+
+Class* VfptrInfo::class$ = nullptr;
+Class* VfptrInfo::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.VfptrInfo",
+		"java.lang.Object"
+	};
+	$loadClass(VfptrInfo, name, initialize, &_ClassInfo_);
+	return class$;
+}
 
 VfptrInfo::VfptrInfo() {
 }
 
-//Class* BootstrapMethod::class$ = nullptr;
-//Class* BootstrapMethod::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
-//
-//Class* ByteCodeClassData::class$ = nullptr;
-//Class* ByteCodeClassData::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
+Class* BootstrapMethod::class$ = nullptr;
+Class* BootstrapMethod::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.BootstrapMethod",
+		"java.lang.Object"
+	};
+	$loadClass(BootstrapMethod, name, initialize, &_ClassInfo_);
+	return class$;
+}
 
-//Class* MethodCache::class$ = nullptr;
-//Class* MethodCache::load$(String* name, bool initialize) {
-//	$loadClass(Frame, name, initialize, (ClassInfo*)nullptr, ($InitClassFunction)nullptr);
-//	return class$;
-//}
+Class* ByteCodeClassData::class$ = nullptr;
+Class* ByteCodeClassData::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.ByteCodeClassData",
+		"java.lang.Object"
+	};
+	$loadClass(ByteCodeClassData, name, initialize, &_ClassInfo_);
+	return class$;
+}
+
+Class* MethodCache::class$ = nullptr;
+Class* MethodCache::load$(String* name, bool initialize) {
+	static ClassInfo _ClassInfo_ = {
+		$PUBLIC,
+		"java.lang.interpreter.MethodCache",
+		"java.lang.Object"
+	};
+	$loadClass(MethodCache, name, initialize, &_ClassInfo_);
+	return class$;
+}
 
 		} // interpreter
 	} // lang

@@ -63,7 +63,7 @@ enum MemoryItemType {
 class ByteCodeInterpreter;
 
 class Frame : public $Object {
-	//$class(Frame, $NO_CLASS_INIT, $Object)
+	$class(Frame, $NO_CLASS_INIT, $Object)
 public:
 	Frame();
 	void init$(ByteCodeInterpreter* interpreter, ByteCodeMethod* method, int32_t operandStackTop);
