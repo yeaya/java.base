@@ -90,7 +90,7 @@ Object* allocate$ByteCodeClass(Class* clazz) {
 	ByteCodeClass* bcClass = (ByteCodeClass*)clazz;
 	bcClass->ensureClassInitialized();
 	Object$* buffer = ObjectManager::alloc(clazz, clazz->size);
-	ByteCodeObject* newObj = new(buffer) ByteCodeObject();
+	$var(ByteCodeObject, newObj, new(buffer) ByteCodeObject());
 	bcClass->assembleVfTab(newObj);
 	return $fcast<Object0>(newObj);
 }

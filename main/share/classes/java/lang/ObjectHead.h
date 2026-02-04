@@ -307,7 +307,7 @@ public:
 
 	intptr_t objectMonitor;
 
-	Class* clazz;
+	Class* clazz; // must be the last of ObjectHead refer Object0::getClass
 };
 
 inline ::java::lang::ObjectHead* toOh(const ::java::lang::Object0* obj0) {

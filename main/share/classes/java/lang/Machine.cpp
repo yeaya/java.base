@@ -658,7 +658,7 @@ void processLibOptions(LibItem* lib) {
 
 String* getExecutionDir() {
 	const char* executionFilePath = Arguments::getExecutionFilePath();
-	$var(File, exeFile, $new(File, $str(executionFilePath)));
+	$var(File, exeFile, $new(File, $$str(executionFilePath)));
 	$var(String, exeDir, exeFile->getParent());
 	return exeDir;
 }

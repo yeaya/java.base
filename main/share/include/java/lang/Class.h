@@ -411,7 +411,7 @@ public:
 	Class* forName(const char* name);
 	Class* forDescriptor(const char* descriptor);
 
-	int32_t calcCastOffset(Class* classTo);
+	int32_t calcCastOffset(Class* classTo, Object$* obj);
 	::java::lang::reflect::Field* findField($String* fieldName);
 	Class* getFieldTypeByOffset(int32_t offset);
 

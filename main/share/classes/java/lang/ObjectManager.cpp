@@ -3013,12 +3013,13 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	//	clazz->ensureClassInitialized();
 	//}
 	//size = clazz->size;
-	//ObjectHead* oh = allocLocalObject(clazz, size);
 	if (pendingObjectCS.size >= memoryManager.getMinLocalGcMemorySize()) {
 		clearVarStackRemain();
 		pendingObjectCS.clear();
 		globalControllerThread->asyncLocalGc(this);
 	}
+	//localGc(OBJECT_REF_TYPE_WEAK);
+
 	/*
 	if (pendingObjectCS.size >= 16 * 1024 * 1024 && pendingObjectCS.count >= 20000) {
 #ifdef ENABLE_OBJECT_REF_COUNT
@@ -3482,6 +3483,7 @@ void ObjectManagerInternal::init() {
 
 void ObjectManagerInternal::init2() {
 	$init(Finalizer);
+	$init(Shutdown);
 	$assignStatic(globalControllerThread, $new(GlobalControllerThread));
 	$var(Thread, t, $new(Thread, globalControllerThread));
 	t->setDaemon(true);
@@ -6092,7 +6094,7 @@ inline bool canArrayCast(Class* srcType, Class* dstType) {
 				break;
 			}
 		}
-		if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
+		if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType, nullptr) < 0) {
 			return false;
 		}
 	}
@@ -6117,7 +6119,7 @@ inline void checkArrayStoreType(Class* srcType, Class* dstType) {
 				break;
 			}
 		}
-		if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
+		if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType, nullptr) < 0) {
 			$throwNew(ArrayStoreException);
 		}
 	//}
@@ -7091,6 +7093,7 @@ bool ObjectManager::patchMemberClass(Object$* obj, PatchedMemberClassInfo*& patc
 			}
 			return true;
 		}
+		$var(Object, saved, obj);
 		PatchedMemberClassInfo* first = nullptr;
 		PatchedMemberClassInfo* last = nullptr;
 		$var($ClassArray, classes, memberClazz->getPrimaryBaseClasses());

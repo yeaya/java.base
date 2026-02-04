@@ -1207,7 +1207,7 @@ bool Class::isAssignableFrom(Class* from) {
 			return false;
 		}
 	}
-	int32_t offset = from->calcCastOffset(this);
+	int32_t offset = from->calcCastOffset(this, nullptr);
 	return offset >= 0;
 }
 
@@ -3465,7 +3465,7 @@ int32_t Class::calcBaseSize() {
 $StringArray* Class::parseMethodDescriptor(String* descriptor) {
 	$var($ArrayList, list, $new($ArrayList));
 	int32_t i = 0;
-	int dim = 0;
+	int32_t dim = 0;
 	for (; i < descriptor->length(); i++) {
 		char16_t c = descriptor->charAt(i);
 		if (c == u'(') {
@@ -4195,11 +4195,16 @@ $Value Class::invokev($Method* method, Object$* obj, $Value* argv) {
 	return Platform::invokev(false, method, obj, argv);
 }
 
-int32_t Class::calcCastOffset(Class* classTo) {
+int32_t Class::calcCastOffset(Class* classTo, Object$* obj) {
 	if (classCastOffsetArray == nullptr) {
-		calcClassCastOffset();
+		if (obj != nullptr) {
+			$var(Object, saved, obj);
+			calcClassCastOffset();
+		} else {
+			calcClassCastOffset();
+		}
 	}
-	for (int i = 0; i < classCastOffsetArrayLength; i++) {
+	for (int32_t i = 0; i < classCastOffsetArrayLength; i++) {
 		if (classCastOffsetArray[i].clazz == classTo) {
 			return classCastOffsetArray[i].offset;
 		}
@@ -4410,14 +4415,14 @@ inline $Object* cast0Impl(Class* to, Class* from, T* inst) {
 					break;
 				}
 			}
-			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
+			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType, obj) < 0) {
 				$throwNew($ClassCastException, $(to->cannotCastMsg(obj)));
 			}
 		}
 		return obj;
 	}
 	int8_t* address = (int8_t*)(void*)obj;
-	int32_t offset = from->calcCastOffset(to);
+	int32_t offset = from->calcCastOffset(to, obj);
 	if (offset >= 0) {
 		return (Object*)(void*)(address + offset);
 	}
@@ -4452,14 +4457,14 @@ $Object* Class::castOrNull(Object$* inst) {
 					break;
 				}
 			}
-			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
+			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType, obj) < 0) {
 				return nullptr;
 			}
 		}
 		return obj;
 	}
 	int8_t* address = (int8_t*)(void*)obj;
-	int32_t offset = objClass->calcCastOffset(this);
+	int32_t offset = objClass->calcCastOffset(this, obj);
 	if (offset >= 0) {
 		return (Object*)(void*)(address + offset);
 	}
@@ -4590,7 +4595,7 @@ bool Class::isAssignable(Class* to, Class* from, Object$* inst) {
 			return false;
 		}
 	}
-	int32_t offset = from->calcCastOffset(to);
+	int32_t offset = from->calcCastOffset(to, inst);
 	return offset >= 0;
 }
 
