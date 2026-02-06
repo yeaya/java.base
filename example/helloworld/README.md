@@ -42,6 +42,7 @@ To build the example/helloworld project, follow these steps:
    ```sh
    mkdir helloworld.build
    ```
+
 6. Build the helloworld example:
    ```sh
    cmake -S java.base/example/helloworld -B helloworld.build -DCMAKE_BUILD_TYPE=Release

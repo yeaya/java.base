@@ -421,6 +421,7 @@ public:
 		freeingListCount = 0;
 		this->payloadSize = store->payloadSize;
 		allocedCount = 0;
+		cacheListCount = 0;
 		next = nullptr;
 		reusedCount++;
 	}
@@ -437,14 +438,19 @@ public:
 		if (allocingListCount > 0) {
 			StoredMemoryBlock* block = allocingList.removeFirst();
 			if (block != nullptr) {
+				allocingListCount--;
 				return block;
 			}
-			StoredMemoryBlock* listHead = cacheList.exchange(nullptr);
-			if (listHead != nullptr) {
-				block = listHead;
-				allocingList.exchange(listHead->next);
-				block->next = nullptr;
-				return block;
+			if (cacheListCount > 0) {
+				StoredMemoryBlock* listHead = cacheList.exchange(nullptr);
+				if (listHead != nullptr) {
+					block = listHead;
+					allocingList.exchange(listHead->next);
+					cacheListCount = 0;
+					allocingListCount--;
+					block->next = nullptr;
+					return block;
+				}
 			}
 			allocingListCount = 0;
 		}
@@ -499,14 +505,30 @@ public:
 	}
 
 	void commitFreeToCache() {
-		StoredMemoryBlock* listHead = freeingList.exchange(nullptr);
-		if (listHead != nullptr) {
-			allocingListCount += freeingListCount;
-			freeingListCount = 0;
-			StoredMemoryBlock* cacheOldListHead = cacheList.exchange(listHead);
+		StoredMemoryBlock* freeingListHead = freeingList.exchange(nullptr);
+		if (freeingListHead != nullptr) {
+			StoredMemoryBlock* cacheOldListHead = cacheList.exchange(nullptr);
+			StoredMemoryBlock* mergedListHead = nullptr;
+			if (cacheOldListHead != nullptr) {
+				ListScaner<StoredMemoryBlock> scaner;
+				if (freeingListCount <= cacheListCount) {
+					scaner.scan(freeingListHead);
+					scaner.tail->next = cacheOldListHead;
+				} else {
+					scaner.scan(cacheOldListHead);
+					scaner.tail->next = freeingListHead;
+				}
+				mergedListHead = scaner.head;
+			} else {
+				mergedListHead = freeingListHead;
+			}
+			cacheOldListHead = cacheList.exchange(mergedListHead);
 			if (cacheOldListHead != nullptr) {
 				cacheList.prependAll(cacheOldListHead);
 			}
+			cacheListCount += freeingListCount;
+			allocingListCount += freeingListCount;
+			freeingListCount = 0;
 		}
 	}
 
@@ -518,6 +540,7 @@ public:
 		}
 		allocingListCount = 0;
 		listHead = cacheList.exchange(nullptr);
+		cacheListCount = 0;
 		freedCount = store->freeBlocks(listHead);
 		if (freedCount > 0) {
 			allocedCount -= freedCount;
@@ -548,11 +571,12 @@ public:
 	}
 
 	MemoryStore* store;
-	std::atomic<int64_t> allocedCount;
+	std::atomic<int32_t> allocedCount;
 	SList<StoredMemoryBlock> allocingList;
 	int32_t allocingListCount;
 	int32_t commitFreeCount;
 	AtomicSList<StoredMemoryBlock> cacheList;
+	std::atomic<int32_t> cacheListCount;
 	SList<StoredMemoryBlock> freeingList;
 	int32_t freeingListCount;
 	int32_t payloadSize;

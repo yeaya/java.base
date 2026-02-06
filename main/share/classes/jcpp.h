@@ -2215,11 +2215,11 @@ inline T* $resolveRef(T* obj) {
 	return (T*)(void*)::java::lang::ObjectManager::resolveRef(obj);
 }
 
-#define $invokeNative(...) $native$Method(::java::lang::System::getJNIEnv(), this, ##__VA_ARGS__)
-#define $invokeNativeStatic(...) $native$Method(::java::lang::System::getJNIEnv(), class$, ##__VA_ARGS__)
+#define $invokeNative(...) $native$Method($getCurrentJNIEnv(), this, ##__VA_ARGS__)
+#define $invokeNativeStatic(...) $native$Method($getCurrentJNIEnv(), class$, ##__VA_ARGS__)
 
-#define $invokeNativeObject(...) $resolveRef($native$Method(::java::lang::System::getJNIEnv(), this, ##__VA_ARGS__))
-#define $invokeNativeStaticObject(...) $resolveRef($native$Method(::java::lang::System::getJNIEnv(), class$, ##__VA_ARGS__))
+#define $invokeNativeObject(...) $resolveRef($native$Method($getCurrentJNIEnv(), this, ##__VA_ARGS__))
+#define $invokeNativeStaticObject(...) $resolveRef($native$Method($getCurrentJNIEnv(), class$, ##__VA_ARGS__))
 
 #define $finishNative() ::java::lang::ObjectManager::finishNative()
 #define $finishNativeStatic() ::java::lang::ObjectManager::finishNative()

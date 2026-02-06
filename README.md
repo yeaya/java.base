@@ -59,7 +59,7 @@ This project includes several third-party libraries with appropriate licensing:
 
 ## Requirements
 
-- **CMake**: Version 3.30 or higher
+- **CMake**: Version 3.23 or higher
 - **C++ Compiler**: Supporting C++17 or later
 - **Platform Support**:
   - Windows (x86_64, aarch64)
@@ -95,7 +95,7 @@ To build the example/helloworld project, follow these steps:
 #include <jcpp.h>
 
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, false, nullptr, []($StringArray* args)->void {
+	return $System::launch(argc, argv, "-$", nullptr, []($StringArray* args)->void {
 		$System::out->println("hello, world"_s);
 	});
 }

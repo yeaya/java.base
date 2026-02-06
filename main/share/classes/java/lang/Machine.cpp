@@ -126,10 +126,10 @@ using namespace ::jdk::internal::jrtfs;
 using namespace ::jdk::internal::jimage;
 
 extern "C" {
-	int jcpp_launch(int argc, char** argv, const char* javaArgPrefix);
-	int jcpp_launch_with_jarg(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix);
-	int jcpp_launch_win(const char* javaArgPrefix);
-	int jcpp_launch_win_with_jarg(int jargc, char** jargv, const char* javaArgPrefix);
+	int jcpp_launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix);
+#ifdef _WIN32
+	int jcpp_launch_win(int jargc, char** jargv, const char* javaArgPrefix);
+#endif
 	int	parse_size(const char* s, int64_t* result);
 }
 
@@ -915,29 +915,19 @@ void Machine::deinit() {
 	ObjectManagerInternal::deinit();
 }
 
-int Machine::launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch(argc, argv, javaArgPrefix);
-}
-
 int Machine::launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch_with_jarg(argc, argv, jargc, jargv, javaArgPrefix);
+	launchDoInitFunction = doInit;
+	launchDoMainFunction = doMain;
+	return jcpp_launch(argc, argv, jargc, jargv, javaArgPrefix);
 }
 
-int Machine::launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch_win(javaArgPrefix);
+#ifdef _WIN32
+int Machine::launchw(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	launchDoInitFunction = doInit;
+	launchDoMainFunction = doMain;
+	return jcpp_launch_win(jargc, jargv, javaArgPrefix);
 }
-
-int Machine::launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	launchDoInitFunction = ($LaunchDoInitFunction)doInit;
-	launchDoMainFunction = ($LaunchDoMainFunction)doMain;
-	return jcpp_launch_win_with_jarg(jargc, jargv, javaArgPrefix);
-}
+#endif
 
 void Machine::run(String* mainClass, $StringArray* args) {
 }

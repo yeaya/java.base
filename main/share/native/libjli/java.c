@@ -220,12 +220,9 @@ static jlong initialHeapSize    = 0;  /* initial heap size */
 #endif
 
 // refer Machine.cpp
-int needLaunchDoMain();
-int launchDoMain(int argc, char** argv);
+extern int launchDoMain(int argc, char** argv);
 
-const char*  jcpp_javaArgPrefix = NULL;
-int jcpp_jargc = 0;
-char** jcpp_jargv = NULL;
+const char* jcpp_javaArgPrefix = NULL;
 
 /*
  * Entry point.
@@ -383,10 +380,10 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
  */
 #define LEAVE() \
     do { \
-        if ((*vm)->DetachCurrentThread(vm) != JNI_OK) { \
-            JLI_ReportErrorMessage(JVM_ERROR2); \
-            ret = 1; \
-        } \
+        /*if ((*vm)->DetachCurrentThread(vm) != JNI_OK) {*/ \
+            /*JLI_ReportErrorMessage(JVM_ERROR2);*/ \
+            /*ret = 1;*/ \
+        /*}*/ \
         if (JNI_TRUE) { \
             (*vm)->DestroyJavaVM(vm); \
             return ret; \
@@ -414,7 +411,7 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
         } \
     } while (JNI_FALSE)
 
-int jcpp_launch0(int argc, char** argv) {
+int jcpp_launch0(int argc, char** argv, int jargc, char** jargv) {
     int margc;
     char** margv;
     const jboolean const_javaw = JNI_FALSE;
@@ -459,28 +456,19 @@ int jcpp_launch0(int argc, char** argv) {
     margv = args->elements;
 
     return JLI_Launch(margc, margv,
-        jcpp_jargc, (const char**)jcpp_jargv,
+        jargc, (const char**)jargv,
         0, NULL,
         "",
         "",
         *margv,
         *margv,
-        jcpp_jargc > 0,
+        jargc > 0,
         0, const_javaw, 0);
 }
 
-int jcpp_launch(int argc, char** argv, const char* javaArgPrefix) {
-    jcpp_jargc = 0;
-    jcpp_jargv = NULL;
+int jcpp_launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix) {
     jcpp_javaArgPrefix = javaArgPrefix;
-    return jcpp_launch0(argc, argv);
-}
-
-int jcpp_launch_with_jarg(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix) {
-    jcpp_jargc = jargc;
-    jcpp_jargv = jargv;
-    jcpp_javaArgPrefix = javaArgPrefix;
-    return jcpp_launch0(argc, argv);
+    return jcpp_launch0(argc, argv, jargc, jargv);
 }
 
 int jcpp_launch_win0(int jargc, char** jargv) {
@@ -523,12 +511,7 @@ int jcpp_launch_win0(int jargc, char** jargv) {
         0, const_javaw, 0);
 }
 
-int jcpp_launch_win(const char* javaArgPrefix) {
-    jcpp_javaArgPrefix = javaArgPrefix;
-    return jcpp_launch_win0(0, NULL);
-}
-
-int jcpp_launch_win_with_jarg(int jargc, char** jargv, const char* javaArgPrefix) {
+int jcpp_launch_win(int jargc, char** jargv, const char* javaArgPrefix) {
     jcpp_javaArgPrefix = javaArgPrefix;
     return jcpp_launch_win0(jargc, jargv);
 }

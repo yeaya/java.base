@@ -1127,21 +1127,31 @@ void System::deinit() {
 	Machine::deinit();
 }
 
-int System::launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	return Machine::launch(argc, argv, javaArgPrefix, doInit, doMain);
-}
-
 int System::launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
 	return Machine::launch(argc, argv, jargc, jargv, javaArgPrefix, doInit, doMain);
 }
 
-int System::launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	return Machine::launchwin(javaArgPrefix, doInit, doMain);
+int System::launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launch(argc, argv, 0, nullptr, javaArgPrefix, doInit, doMain);
 }
 
-int System::launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
-	return Machine::launchwin(jargc, jargv, javaArgPrefix, doInit, doMain);
+int System::launch(int argc, char** argv, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launch(argc, argv, 0, nullptr, "-$", doInit, doMain);
 }
+
+#ifdef _WIN32
+int System::launchw(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchw(jargc, jargv, javaArgPrefix, doInit, doMain);
+}
+
+int System::launchw(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchw(0, nullptr, javaArgPrefix, doInit, doMain);
+}
+
+int System::launchw($LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain) {
+	return Machine::launchw(0, nullptr, "-$", doInit, doMain);
+}
+#endif
 
 void System::run(String* mainClass, $StringArray* args) {
 	Machine::run(mainClass, args);
@@ -1149,10 +1159,6 @@ void System::run(String* mainClass, $StringArray* args) {
 
 String* System::getSystemClassPath() {
 	return Machine::getSystemClassPath();
-}
-
-void* System::getJNIEnv() {
-	return Platform::getJNIEnv();
 }
 
 void* System::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {

@@ -283,6 +283,7 @@ public:
 	static void setObjectArrayClass(ObjectArray* array, Class* clazz);
 
 	// for JNI
+	static void* getJNIEnv();
 	static void prepareNative();
 	static void finishNative();
 	static void pushLocalFrame(int32_t capacity);
@@ -323,6 +324,19 @@ public:
 };
 
 #define $debug(...) ::java::lang::ObjectManager::debug(__VA_ARGS__)
+
+class JNIEnvCache {
+public:
+	inline static void* currentJNIEnv() {
+		thread_local void* jniEnv = nullptr;
+		if (jniEnv == nullptr) {
+			jniEnv = ::java::lang::ObjectManager::getJNIEnv();
+		}
+		return jniEnv;
+	}
+};
+
+#define $getCurrentJNIEnv() ::java::lang::JNIEnvCache::currentJNIEnv()
 
 class $import MagicObjectVar {
 public:

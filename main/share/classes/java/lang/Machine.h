@@ -91,10 +91,10 @@ public:
 	static void init2();
 	static void init3();
 	static void deinit();
-	static int launch(int argc, char** argv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
 	static int launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launchwin(const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
-	static int launchwin(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+#ifdef _WIN32
+	static int launchw(int jargc, char** jargv, const char* javaArgPrefix, $LaunchDoInitFunction doInit, $LaunchDoMainFunction doMain);
+#endif
 	static void run(String* mainClass, $StringArray* args);
 	static String* getSystemClassPath();
 

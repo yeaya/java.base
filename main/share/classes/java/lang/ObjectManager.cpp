@@ -3499,9 +3499,6 @@ void ObjectManagerInternal::init3() {
 void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit() enter\n");
 	if (objectManagerInited) {
-		if (globalControllerThread != nullptr) {
-			globalControllerThread->stop();
-		}
 		globalController->deinit(false);
 		objectManagerInited = false;
 	}
@@ -3511,9 +3508,6 @@ void ObjectManagerInternal::deinit() {
 void ObjectManagerInternal::beforeExit() {
 	log_debug("ObjectManagerInternal::beforeExit() enter\n");
 	if (objectManagerInited) {
-		if (globalControllerThread != nullptr) {
-			globalControllerThread->stop();
-		}
 		globalController->deinit(true);
 		objectManagerInited = false;
 	}
@@ -6656,6 +6650,9 @@ void GlobalController::deinit(bool force) {
 		}
 		opt();
 	}
+	if (globalControllerThread != nullptr) {
+		globalControllerThread->stop();
+	}
 
 	log_debug("Shutdown::shutdown() before\n");
 	Shutdown::shutdown();
@@ -6832,6 +6829,10 @@ Throwable* ObjectManager::catchPendingException() {
 	}
 	$nc(e);
 	return e;
+}
+
+void* ObjectManager::getJNIEnv() {
+	return Platform::getJNIEnv();
 }
 
 void ObjectManager::prepareNative() {
