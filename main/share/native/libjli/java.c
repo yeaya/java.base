@@ -223,6 +223,8 @@ static jlong initialHeapSize    = 0;  /* initial heap size */
 extern int launchDoMain(int argc, char** argv);
 
 const char* jcpp_javaArgPrefix = NULL;
+int jcpp_jargc = 0;
+char** jcpp_jargv = NULL;
 
 /*
  * Entry point.
@@ -411,7 +413,7 @@ JLI_Launch(int argc, char ** argv,              /* main argc, argv */
         } \
     } while (JNI_FALSE)
 
-int jcpp_launch0(int argc, char** argv, int jargc, char** jargv) {
+int jcpp_launch0(int argc, char** argv) {
     int margc;
     char** margv;
     const jboolean const_javaw = JNI_FALSE;
@@ -456,28 +458,30 @@ int jcpp_launch0(int argc, char** argv, int jargc, char** jargv) {
     margv = args->elements;
 
     return JLI_Launch(margc, margv,
-        jargc, (const char**)jargv,
+        jcpp_jargc, (const char**)jcpp_jargv,
         0, NULL,
         "",
         "",
         *margv,
         *margv,
-        jargc > 0,
+        jcpp_jargc > 0,
         0, const_javaw, 0);
 }
 
 int jcpp_launch(int argc, char** argv, int jargc, char** jargv, const char* javaArgPrefix) {
+    jcpp_jargc = jargc;
+    jcpp_jargv = jargv;
     jcpp_javaArgPrefix = javaArgPrefix;
-    return jcpp_launch0(argc, argv, jargc, jargv);
+    return jcpp_launch0(argc, argv);
 }
 
-int jcpp_launch_win0(int jargc, char** jargv) {
+#ifdef _WIN32
+int jcpp_launch_win0() {
     int margc;
     char** margv;
     const jboolean const_javaw = JNI_TRUE;
     JLI_InitArgProcessing(JNI_FALSE, JNI_FALSE);
 
-#ifdef _WIN32
     {
         int i = 0;
         if (getenv(JLDEBUG_ENV_ENTRY) != NULL) {
@@ -499,22 +503,24 @@ int jcpp_launch_win0(int jargc, char** jargv) {
         }
         margv[i] = NULL;
     }
-#endif
     return JLI_Launch(margc, margv,
-        jargc, (const char**)jargv,
+        jcpp_jargc, (const char**)jcpp_jargv,
         0, NULL,
         "",
         "",
         *margv,
         *margv,
-        jargc > 0,
+        jcpp_jargc > 0,
         0, const_javaw, 0);
 }
 
 int jcpp_launch_win(int jargc, char** jargv, const char* javaArgPrefix) {
+    jcpp_jargc = jargc;
+    jcpp_jargv = jargv;
     jcpp_javaArgPrefix = javaArgPrefix;
-    return jcpp_launch_win0(jargc, jargv);
+    return jcpp_launch_win0();
 }
+#endif
 
 int
 JavaMain(void* _args)
