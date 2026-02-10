@@ -36,6 +36,10 @@ public:
 		head = nullptr;
 	}
 
+	void clear() {
+		head = nullptr;
+	}
+
 	inline bool isEmpty() const {
 		return head == nullptr;
 	}
@@ -76,13 +80,13 @@ public:
 
 	// this function is not safe on concurrent access, when the removed item prepend current list immediately
 	inline T* removeFirst() {
-		T* oldValue = head.load(std::memory_order_relaxed);
+		T* oldValue = head.load(std::memory_order_consume);
 		while (oldValue != nullptr) {
 			T* newValue = oldValue->next;
 			//if (newValue == oldValue) {
 			//	log_warning("ddd %p\n", newValue);
 			//}
-			if (head.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_relaxed)) {
+			if (head.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_consume)) {
 				oldValue->next = nullptr;
 				//return oldValue;
 				break;
@@ -249,6 +253,10 @@ public:
 		head = nullptr;
 	}
 	SList(T* head) : head(head) {
+	}
+
+	void clear() {
+		head = nullptr;
 	}
 
 	inline bool isEmpty() const {

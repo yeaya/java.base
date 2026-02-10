@@ -492,13 +492,13 @@ public:
 
 	inline void clear0() {
 		GcHandlePending* aghp = head;
-		head = nullptr;
 		while (aghp != nullptr) {
 			GcHandlePending* next = aghp->next;
 			if (aghp != head) {
 				GcHandlePending::free(aghp);
 			} else {
-				//head->clearPos();
+				aghp->clearPos();
+				aghp->next = nullptr;
 			}
 			aghp = next;
 		}
@@ -2024,6 +2024,12 @@ void ScanContextPending::free(ScanContextPending* scp) {
 	memoryManager.freeRaw(scp);
 }
 
+int64_t MIN_REAL_GC_WAITING_MS = 5;
+int64_t MAX_FULL_GC_WAITING_MS = 60000;
+int64_t MAX_LOCAL_GC_WAITING_MS = 30000;
+int64_t MAX_MEMORY_OPT_WAITING_MS = 1000;
+int64_t MAX_PRINT_STAT_WAITING_MS = 1000;
+
 class GlobalControllerThread : public Runnable {
 	$mark(GlobalControllerThread, $CLASS | $NO_CLASS_INIT, Runnable);
 public:
@@ -2041,11 +2047,13 @@ public:
 	}
 	void asyncLocalGc(LocalController* localController) {
 		localController->asyncLocalGcEvent = true;
-		Object0* obj0 = $of(this);
-		if (obj0->trylock(obj0)) {
-			this->localGcTime = GlobalControllerThread::MAX_LOCAL_GC_TIME_MS;
-			obj0->notify();
-			obj0->unlock();
+		if (this->localGcWaitingMs < MAX_LOCAL_GC_WAITING_MS) {
+			Object0* obj0 = $of(this);
+			if (obj0->trylock()) {
+				this->localGcWaitingMs = MAX_LOCAL_GC_WAITING_MS;
+				obj0->notify();
+				obj0->unlock();
+			}
 		}
 	}
 	void asyncMemoryManagerOpt(MemoryManager::OPT_TYPE optType) {
@@ -2061,14 +2069,10 @@ public:
 	volatile bool runFlag = true;
 	volatile bool stopedFlag = false;
 
-	const static int64_t MAX_FULL_GC_TIME_MS = 60000;
-	const static int64_t MAX_LOCAL_GC_TIME_MS = 30000;
-	const static int64_t MAX_MEMORY_OPT_TIME_MS = 1000;
-	const static int64_t MAX_PRINT_STAT_TIME_MS = 1000;
-
-	int64_t fullGcTime = 0;
-	int64_t localGcTime = 0;
-	int64_t memoryOptTime = 0;
+	int64_t gcWaitingMs = 0;
+	int64_t fullGcWaitingMs = 0;
+	volatile int64_t localGcWaitingMs = 0;
+	int64_t memoryOptWaitingMs = 0;
 	MemoryManager::OPT_TYPE nextOptType = MemoryManager::OPT_NORMAL;
 };
 
@@ -2115,10 +2119,6 @@ inline void ScanContextPendingManager::addOne(ObjectHead* oh) {
 	}
 	scp->addLast(oh);
 }
-
-//#define HANDLE_ASSIGN_4GC(x, y) localController->handleAssign4Gc(x, y)
-//#define HANDLE_ASSIGN_4GC(x, y) if (globalGcType != GC_TYPE_NONE) localController->handleAssign4Gc(x, y)
-//#define HANDLE_ASSIGN_4GC(x, y) localController->handleAssign4Gc(x, y)
 
 template<typename T>
 class ScanMarkBase {
@@ -3014,34 +3014,15 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	//}
 	//size = clazz->size;
 	if (pendingObjectCS.size >= memoryManager.getMinLocalGcMemorySize()) {
-		clearVarStackRemain();
-		pendingObjectCS.clear();
-		globalControllerThread->asyncLocalGc(this);
+		if (globalControllerThread != nullptr) {
+			clearVarStackRemain();
+			pendingObjectCS.clear();
+			globalControllerThread->asyncLocalGc(this);
+		}
 	}
 	//localGc(OBJECT_REF_TYPE_WEAK);
+	//fullGc(OBJECT_REF_TYPE_WEAK);
 
-	/*
-	if (pendingObjectCS.size >= 16 * 1024 * 1024 && pendingObjectCS.count >= 20000) {
-#ifdef ENABLE_OBJECT_REF_COUNT
-		if (refCountGcCount < 50) {
-			localGcWithRefCount(OBJECT_REF_TYPE_WEAK);
-			refCountGcCount++;
-		}
-		refCountGcCount = 0;
-#endif
-		if (objectCSLocal.count.value() < 50000) {
-			localGc(OBJECT_REF_TYPE_WEAK);
-			pendingObjectCS.clear();
-		} else {
-			clearVarStackRemain();
-			int64_t localSize = objectCSLocal.size.value();
-			if (localSize > memoryManager.getMinMemorySize() / 5 && pendingObjectCS.size * 5 > localSize) {
-				pendingObjectCS.clear();
-				globalControllerThread->asyncLocalGc(this);
-			}
-		}
-	}
-	*/
 	ObjectHead* oh = allocLocalObject0(size);
 	if (oh == nullptr) {
 		localGc(OBJECT_REF_TYPE_SOFT);
@@ -3192,45 +3173,41 @@ void GlobalControllerThread::run() {
 		int64_t diff = curr - lastTime;
 
 		if (diff > 0) {
-			fullGcTime += diff;
-			localGcTime += diff;
-			memoryOptTime += diff;
+			gcWaitingMs += diff;
+			fullGcWaitingMs += diff;
+			localGcWaitingMs += diff;
+			memoryOptWaitingMs += diff;
 			globalController->printStatTime += diff;
 		}
 
 		globalController->opt();
-		if (globalController->printStatTime >= MAX_PRINT_STAT_TIME_MS) {
+		if (globalController->printStatTime >= MAX_PRINT_STAT_WAITING_MS) {
 			globalController->printStat();
 		}
 
-		if (nextOptType != MemoryManager::OPT_NORMAL || memoryOptTime >= MAX_MEMORY_OPT_TIME_MS) {
+		if (nextOptType != MemoryManager::OPT_NORMAL || memoryOptWaitingMs >= MAX_MEMORY_OPT_WAITING_MS) {
 			globalController->gcHandlePendingAllocater->opt(1);
 			globalController->scanContextPendingAllocater->opt(1);
 			MemoryManager::OPT_TYPE optType = nextOptType;
 			nextOptType = MemoryManager::OPT_NORMAL;
 			memoryManager.opt(optType);
-			memoryOptTime = 0;
+			memoryOptWaitingMs = 0;
 		}
 
-		if (fullGcTime >= MAX_FULL_GC_TIME_MS || globalController->pendingObjectCSGlobal.size > memoryManager.getMinMemorySize() / 5) {
-			//	globalController->printStat();
-			fullGcTime = 0;
-			localGcTime = 0;
-			GcResult gcResult(GC_TYPE_FULL);
-			globalController->fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
-			//fullGcTime = 0;
-			//localGcTime = 0;
-		} else if (localGcTime >= MAX_LOCAL_GC_TIME_MS) {
-			localGcTime = 0;
-			GcResult gcResult(GC_TYPE_ASYNC_LOCAL);
-			globalController->asyncLocalGc(OBJECT_REF_TYPE_WEAK, false, &gcResult);
-			//if (gcResult.free.size < 10 * 1024 * 1024) {
-			//	localGcTime = 0;
-			//} else if (gcResult.free.size < 20 * 1024 * 1024) {
-			//	localGcTime = MAX_LOCAL_GC_TIME_MS / 2;
-			//} else {
-			//	localGcTime = MAX_LOCAL_GC_TIME_MS / 2;
-			//}
+		if (gcWaitingMs >= MIN_REAL_GC_WAITING_MS) {
+			if (fullGcWaitingMs >= MAX_FULL_GC_WAITING_MS || globalController->pendingObjectCSGlobal.size > memoryManager.getMinMemorySize() / 5) {
+				//	globalController->printStat();
+				GcResult gcResult(GC_TYPE_FULL);
+				globalController->fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
+				gcWaitingMs = 0;
+				fullGcWaitingMs = 0;
+				localGcWaitingMs = 0;
+			} else if (localGcWaitingMs >= MAX_LOCAL_GC_WAITING_MS) {
+				GcResult gcResult(GC_TYPE_ASYNC_LOCAL);
+				globalController->asyncLocalGc(OBJECT_REF_TYPE_WEAK, false, &gcResult);
+				gcWaitingMs = 0;
+				localGcWaitingMs = 0;
+			}
 		}
 		lastTime = System::currentTimeMillis();
 	}
@@ -3852,12 +3829,14 @@ inline void relist(ObjectHead* listHead, GcType gcType, GcResult* gcResult, Coun
 
 template<typename T>
 inline void prependAll(ObjectHead* listHead, T& targetList) {
-	if (targetList.isEmpty()) {
-		targetList.exchange(listHead);
-	} else {
-		ListScaner<ObjectHead> scaner;
-		scaner.scan(listHead);
-		targetList.prependAll(scaner.head, scaner.tail);
+	if (listHead != nullptr) {
+		if (targetList.isEmpty()) {
+			targetList.exchange(listHead);
+		} else {
+			ListScaner<ObjectHead> scaner;
+			scaner.scan(listHead);
+			targetList.prependAll(scaner.head, scaner.tail);
+		}
 	}
 }
 

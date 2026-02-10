@@ -38,7 +38,6 @@ java.base/
 │   ├── linux/              # Linux-specific code
 │   └── macos/              # macOS-specific code
 ├── test/                   # Test suite
-├── build/                  # Build artifacts
 ├── legal/                  # Legal notices and licenses
 └── CMakeLists.txt          # Build configuration
 ```
@@ -95,7 +94,7 @@ To build the example/helloworld project, follow these steps:
 #include <jcpp.h>
 
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, "-$", nullptr, []($StringArray* args)->void {
+	return $System::launch(argc, argv, nullptr, []($StringArray* args)->void {
 		$System::out->println("hello, world"_s);
 	});
 }

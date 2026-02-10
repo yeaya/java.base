@@ -45,8 +45,23 @@ inline T calcAlignedSize(T size) {
 namespace java {
     namespace lang {
 
+enum MemoryAllocaterType {
+	MemoryAllocaterType_None = 0,
+	MemoryAllocaterType_Store = 1,
+	MemoryAllocaterType_Stored = 2,
+	MemoryAllocaterType_Raw = 3,
+	MemoryAllocaterType_CachedRaw = 4,
+	MemoryAllocaterType_Object = 5,
+	MemoryAllocaterType_Static = 6
+};
+
 class MemoryManager;
-class MemoryAllocater;
+class MemoryAllocater {
+public:
+	virtual void free(void* m) = 0;
+	virtual MemoryAllocaterType getType() = 0;
+	virtual int32_t getId() = 0;
+};
 
 class MemoryBlock {
 private:
@@ -55,17 +70,32 @@ private:
 	const static int32_t MEMORY_BLOCK_TYPE_STORE = 2;
 	const static int32_t MEMORY_BLOCK_PAYLOAD_INITED = 4;
 	const static int32_t PAYLOAD_SIZE_SHIFT = 3;
+#ifdef OBJECT_DEBUG
+	int64_t MAGIC;
+#endif
 	MemoryAllocater* allocater;
 	int64_t payloadSizeAndType; // size: payload size
-
 public:
+#ifdef OBJECT_DEBUG
+	MemoryAllocaterType allocaterType;
+	int32_t allocaterId;
+#endif
 	inline void init(int64_t payloadSize) {
+#ifdef OBJECT_DEBUG
+		MAGIC = 0x12345678;
+#endif
 		payloadSizeAndType = (payloadSize << PAYLOAD_SIZE_SHIFT);
 	}
 	inline void initObject(int64_t payloadSize) {
+#ifdef OBJECT_DEBUG
+		MAGIC = 0x12345678;
+#endif
 		payloadSizeAndType = (payloadSize << PAYLOAD_SIZE_SHIFT) | MEMORY_BLOCK_TYPE_OBJECT;
 	}
 	inline void initStoreObject(int64_t payloadSize) {
+#ifdef OBJECT_DEBUG
+		MAGIC = 0x12345678;
+#endif
 		payloadSizeAndType = (payloadSize << PAYLOAD_SIZE_SHIFT) | MEMORY_BLOCK_TYPE_OBJECT | MEMORY_BLOCK_TYPE_STORE;
 	}
 	inline void setObject() {
@@ -91,6 +121,15 @@ public:
 	}
 	inline void setAllocater(MemoryAllocater* ma) {
 		allocater = ma;
+#ifdef OBJECT_DEBUG
+		if (ma != nullptr) {
+			allocaterType = ma->getType();
+			allocaterId = ma->getId();
+		} else {
+			allocaterType = MemoryAllocaterType_None;
+			allocaterId = -1;
+		}
+#endif
 	}
 	inline MemoryAllocater* getAllocater() {
 		return allocater;
@@ -98,6 +137,9 @@ public:
 	inline void reset() {
 		allocater = nullptr;
 		payloadSizeAndType = 0;
+#ifdef OBJECT_DEBUG
+		allocaterId = -2;
+#endif
 	}
 	inline int64_t getPayloadSize() {
 		return payloadSizeAndType >> PAYLOAD_SIZE_SHIFT;
@@ -213,11 +255,6 @@ public:
 	}
 };
 
-class MemoryAllocater {
-public:
-	virtual void free(void* m) = 0;
-};
-
 //#define MAX_BANCH_COUNT 50
 
 template<typename T>
@@ -328,29 +365,12 @@ public:
 		return nullptr;
 	}
 
-	int32_t freeBlocks(StoredMemoryBlock* listHead) {
-		if (listHead != nullptr) {
-			ListScaner<StoredMemoryBlock> scaner;
-			scaner.scan(listHead);
-			int32_t count = scaner.length;
-			StoredMemoryBlock* old = blocks.load(std::memory_order_relaxed);
-			scaner.tail->next = old;
-			while (!blocks.compare_exchange_weak(old, listHead, std::memory_order_release, std::memory_order_relaxed)) {
-				//old = banchBlocks;
-				scaner.tail->next = old;
-			}
-			freeCount += count;
-			return count;
-		}
-		return 0;
-	}
-
 	StoredMemoryBlock* allocBlock() {
-		StoredMemoryBlock* oldValue = blocks.load(std::memory_order_relaxed);
+		StoredMemoryBlock* oldValue = blocks.load(std::memory_order_consume);
 		//StoredMemoryBlock* oldValue = blocks;
 		while (oldValue != nullptr) {
 			StoredMemoryBlock* newValue = oldValue->next;
-			if (blocks.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_relaxed)) {
+			if (blocks.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_consume)) {
 				oldValue->next = nullptr;
 				freeCount--;
 				return oldValue;
@@ -367,6 +387,23 @@ public:
 			block->next = oldValue;
 		}
 		freeCount++;
+	}
+
+	int32_t freeBlocks(StoredMemoryBlock* listHead) {
+		if (listHead != nullptr) {
+			ListScaner<StoredMemoryBlock> scaner;
+			scaner.scan(listHead);
+			int32_t count = scaner.length;
+			StoredMemoryBlock* old = blocks.load(std::memory_order_relaxed);
+			scaner.tail->next = old;
+			while (!blocks.compare_exchange_weak(old, listHead, std::memory_order_release, std::memory_order_relaxed)) {
+				//old = banchBlocks;
+				scaner.tail->next = old;
+			}
+			freeCount += count;
+			return count;
+		}
+		return 0;
 	}
 
 	bool isEmpty() {
@@ -400,6 +437,13 @@ public:
 		stat->add(size, usedSize);
 	}
 
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_Store;
+	}
+
+	virtual int32_t getId() {
+		return 0;
+	}
 	std::atomic<StoredMemoryBlock*> blocks;
 	std::atomic<int64_t> freeCount;
 	std::atomic<MemoryStore*> next = nullptr;
@@ -417,13 +461,17 @@ public:
 	void init(MemoryStore* store) {
 		store->addRef();
 		this->store = store;
-		allocingListCount = 0;
-		freeingListCount = 0;
-		this->payloadSize = store->payloadSize;
 		allocedCount = 0;
+		allocingList.clear();
+		allocingListCount = 0;
+		commitFreeCount = 0;
+		cacheList.clear();
 		cacheListCount = 0;
-		next = nullptr;
+		freeingList.clear();
+		freeingListCount = 0;
+		payloadSize = store->payloadSize;;
 		reusedCount++;
+		next = nullptr;
 	}
 
 	void deinit() {
@@ -570,6 +618,14 @@ public:
 		allocedCount--;
 	}
 
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_Stored;
+	}
+
+	virtual int32_t getId() {
+		return id;
+	}
+
 	MemoryStore* store;
 	std::atomic<int32_t> allocedCount;
 	SList<StoredMemoryBlock> allocingList;
@@ -590,6 +646,12 @@ public:
 	RawMemoryAllocater(MemoryManager* memoryManager) : memoryManager(memoryManager) {}
 	virtual MemoryBlock* allocBlockOrNull(int64_t payloadSize, bool core);
 	virtual void free(void* m) override;
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_Raw;
+	}
+	virtual int32_t getId() {
+		return 0;
+	}
 	MemoryManager* memoryManager;
 	AtomicMemoryStat stat;
 };
@@ -607,10 +669,10 @@ public:
 	}
 
 	StoredMemoryBlock* removeCache() {
-		StoredMemoryBlock* oldValue = removeCacheBlocks.load(std::memory_order_relaxed);
+		StoredMemoryBlock* oldValue = removeCacheBlocks.load(std::memory_order_consume);
 		while (oldValue != nullptr) {
 			StoredMemoryBlock* newValue = oldValue->next;
-			if (removeCacheBlocks.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_relaxed)) {
+			if (removeCacheBlocks.compare_exchange_weak(oldValue, newValue, std::memory_order_release, std::memory_order_consume)) {
 				oldValue->next = nullptr;
 				cacheCount--;
 				return oldValue;
@@ -638,23 +700,33 @@ public:
 
 	void addCache(StoredMemoryBlock* block) {
 		//block->reset();
-		if ((int64_t)block < 0xffff) {
-			log_debug("addCache%p\n", block);
-		}
+	//	if ((int64_t)block < 0xffff) {
+	//		log_debug("addCache block:%p\n", block);
+	//	}
 		StoredMemoryBlock* oldValue = removeCacheBlocks.load(std::memory_order_relaxed);
+	//	if (oldValue != nullptr && (int64_t)oldValue < 0xffff) {
+	//		log_debug("addCache oldValue:%p\n", oldValue);
+	//	}
 		block->next = oldValue;
 		while (!removeCacheBlocks.compare_exchange_weak(oldValue, block, std::memory_order_release, std::memory_order_relaxed)) {
 			block->next = oldValue;
 		}
-		if (block->next != nullptr && (int64_t)block->next < 0xffff) {
-			log_debug("addCache%p\n", block->next);
-		}
+	//	if (block->next != nullptr && (int64_t)block->next < 0xffff) {
+	//		log_debug("addCache next:%p\n", block->next);
+	//	}
 		cacheCount++;
 	}
 	void opt(int32_t count);
 	void clear();
 	void setMinCacheCount(int32_t count) {
 		minCacheCount = count;
+	}
+
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_CachedRaw;
+	}
+	virtual int32_t getId() {
+		return 0;
 	}
 private:
 	int64_t payloadSize;
@@ -671,6 +743,12 @@ public:
 	ObjectMemoryAllocater(MemoryManager* memoryManager) : memoryManager(memoryManager) {}
 	virtual ObjectHead* allocObject(int64_t payloadSize);
 	virtual void free(void* m) override;
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_Object;
+	}
+	virtual int32_t getId() {
+		return 0;
+	}
 	MemoryManager* memoryManager;
 	AtomicMemoryStat stat;
 };
@@ -708,6 +786,12 @@ public:
 		: memoryManager(memoryManager), maxBufferSize(maxBufferSize), maxAllocSize(maxAllocSize) {}
 	MemoryBlock* alloc(int64_t payloadSize);
 	virtual void free(void* m);
+	virtual MemoryAllocaterType getType() {
+		return MemoryAllocaterType_Static;
+	}
+	virtual int32_t getId() {
+		return 0;
+	}
 	void stat(MemoryStat* stat) {
 		StaticMemoryBuffer* buffer = head;
 		if (buffer != nullptr) {

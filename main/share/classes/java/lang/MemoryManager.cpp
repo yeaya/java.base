@@ -235,10 +235,12 @@ MemoryStore* MemoryManager::createStore0(int32_t payloadSize, int32_t count, boo
 	MemoryStore* store = new(buffer) MemoryStore(buffer + alignedStoreSize, (int32_t)(allSize - alignedStoreSize), payloadSize, banchMode);
 	memoryStoreIndex.add(store);
 	statAllocateStore(block->getMemorySize());
+	//log_debug("createStore0 %p payloadSize:%" PRId32 "\n", store, payloadSize);
 	return store;
 }
 
 void MemoryManager::freeStore0(MemoryStore* store) {
+	//log_debug("freeStore0 %p payloadSize:%" PRId32 "\n", store, store->payloadSize);
 	memoryStoreIndex.remove(store);
 	MemoryBlock* block = MemoryBlock::fromPayload(store);
 	statFreeStore(block->getMemorySize());
@@ -362,7 +364,7 @@ StoredMemoryAllocater* MemoryManager::createAllocater(int32_t slabIndex) {
 	if (allocater != nullptr) {
 		bool successed = attachStore(slabIndex, allocater);
 		if (successed) {
-			//log_debug("createAllocater id:%" PRId32 "\n", allocater->id);
+			//log_debug("createAllocater %p id:%" PRId32 "\n", allocater, allocater->id);
 			return allocater;
 		} else {
 			freeAllocater0(allocater);
@@ -387,7 +389,7 @@ StoredMemoryAllocater* MemoryManager::createAllocater(int32_t slabIndex) {
 //}
 
 void MemoryManager::freeAllocater(StoredMemoryAllocater* allocater) {
-	//log_debug("freeAllocater id:%" PRId32 "\n", allocater->id);
+	//log_debug("freeAllocater %p id:%" PRId32 "\n", allocater, allocater->id);
 	freeAllocater0(allocater);
 }
 
