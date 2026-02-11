@@ -831,6 +831,18 @@ public:
 	void freeAllocs();
 	void optAllocs(bool isFinalFullGc);
 
+	inline StoredMemoryAllocater* createAllocater(int32_t slabIndex) {
+		StoredMemoryAllocater* oa = memoryManager.createAllocater(slabIndex);
+		if (oa != nullptr) {
+			statLocal.allocAllocater();
+		}
+		return oa;
+	}
+	inline void freeAllocater(StoredMemoryAllocater* allocater) {
+		memoryManager.freeAllocater(allocater);
+		statLocal.freeAllocater();
+	}
+
 	void init(Thread* thread);
 	void deinit();
 
@@ -1216,7 +1228,7 @@ public:
 				cacheCS.add(block->getMemorySize());
 				block = block->next;
 			}
-			block = allocater->cacheList.head;
+			block = allocater->freeList.head;
 			while (block != nullptr) {
 				cacheCS.add(block->getMemorySize());
 				block = block->next;
@@ -2658,28 +2670,23 @@ void LocalController::freeAllocs() {
 		StoredMemoryAllocater* allocater = objectAllocaterLocalCurrent[i];
 		if (allocater != nullptr) {
 			objectAllocaterLocalCurrent[i] = nullptr;
-			memoryManager.freeAllocater(allocater);
-			statLocal.freeAllocater();
+			freeAllocater(allocater);
 		}
 		{
-			AtomicMemoryAllocaterList& allocaterList = objectAllocaterLocal[i];
-			StoredMemoryAllocater* listHead = allocaterList.exchange(nullptr);
+			StoredMemoryAllocater* listHead = objectAllocaterLocal[i].exchange(nullptr);
 			MemoryAllocaterList listTemp(listHead);
 			allocater = listTemp.removeFirst();
 			while (allocater != nullptr) {
-				memoryManager.freeAllocater(allocater);
-				statLocal.freeAllocater();
+				freeAllocater(allocater);
 				allocater = listTemp.removeFirst();
 			}
 		}
 		{
-			AtomicMemoryAllocaterList& allocaterPendingList = objectAllocaterLocalPending[i];
-			StoredMemoryAllocater* listHead = allocaterPendingList.exchange(nullptr);
+			StoredMemoryAllocater* listHead = objectAllocaterLocalPending[i].exchange(nullptr);
 			MemoryAllocaterList listTemp(listHead);
 			allocater = listTemp.removeFirst();
 			while (allocater != nullptr) {
-				memoryManager.freeAllocater(allocater);
-				statLocal.freeAllocater();
+				freeAllocater(allocater);
 				allocater = listTemp.removeFirst();
 			}
 		}
@@ -2691,54 +2698,53 @@ void LocalController::optAllocs(bool isFinalFullGc) {
 	for (int i = 0; i < SLAB_COUNT; i++) {
 		StoredMemoryAllocater* allocater = objectAllocaterLocalCurrent[i];
 		if (allocater != nullptr) {
-			allocater->commitFreeToCache();
+			allocater->mergeFreeingToFree();
 		}
 		int32_t optCount = 0;
+		AtomicMemoryAllocaterList& allocaterList = objectAllocaterLocal[i];
+		AtomicMemoryAllocaterList& allocaterPendingList = objectAllocaterLocalPending[i];
 		{
-			AtomicMemoryAllocaterList& allocaterList = objectAllocaterLocal[i];
 			StoredMemoryAllocater* listHead = allocaterList.exchange(nullptr);
 			MemoryAllocaterList listTemp(listHead);
 			allocater = listTemp.removeFirst();
 			while (allocater != nullptr) {
 				if (isFinalFullGc) {
-					allocater->flush();
+					allocater->moveFreeingToStore();
+					allocater->moveFreeToStore();
 				} else {
-					allocater->commitFreeToCache();
+					allocater->mergeFreeingToFree();
 				}
-				if (allocater->canFree() && optCount < maxOptCount) {
-					memoryManager.freeAllocater(allocater);
-					statLocal.freeAllocater();
+				if (allocater->getAllocedCount() == 0 && optCount < maxOptCount) {
+					freeAllocater(allocater);
 					optCount++;
 				} else {
-					//allocater->commitFreeToCache();
-					if (allocater->canAlloc()) {
+					//if (allocater->canAlloc()) {
 						allocaterList.prepend(allocater);
-					} else {
-						objectAllocaterLocalPending[i].prepend(allocater);
-					}
+					//} else {
+						//allocaterPendingList.prepend(allocater);
+					//}
 				}
 				allocater = listTemp.removeFirst();
 			}
 		}
 		{
-			AtomicMemoryAllocaterList& allocaterPendingList = objectAllocaterLocalPending[i];
 			StoredMemoryAllocater* listHead = allocaterPendingList.exchange(nullptr);
 			MemoryAllocaterList listTemp(listHead);
 			allocater = listTemp.removeFirst();
 			while (allocater != nullptr) {
+				bool hasFreed = !allocater->freeingList.isEmpty();
 				if (isFinalFullGc) {
-					allocater->flush();
+					allocater->moveFreeingToStore();
+					allocater->moveFreeToStore();
 				} else {
-					allocater->commitFreeToCache();
+					allocater->mergeFreeingToFree();
 				}
-				if (allocater->canFree() && optCount < maxOptCount) {
-					memoryManager.freeAllocater(allocater);
-					statLocal.freeAllocater();
+				if (allocater->getAllocedCount() == 0 && optCount < maxOptCount) {
+					freeAllocater(allocater);
 					optCount++;
 				} else {
-					//allocater->commitFreeToCache();
-					if (allocater->canAlloc()) {
-						objectAllocaterLocal[i].prepend(allocater);
+					if (hasFreed || allocater->canAlloc()) {
+						allocaterList.prepend(allocater);
 					} else {
 						allocaterPendingList.prepend(allocater);
 					}
@@ -2869,11 +2875,10 @@ inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
 	ObjectHead* oh = nullptr;
 	StoredMemoryAllocater* oa = objectAllocaterLocalCurrent[slabIndex];
 	if (oa == nullptr) {
-		oa = memoryManager.createAllocater(slabIndex);
+		oa = createAllocater(slabIndex);
 		if (oa == nullptr) {
 			return nullptr;
 		}
-		statLocal.allocAllocater();
 		objectAllocaterLocalCurrent[slabIndex] = oa;
 	}
 	oh = oa->allocObject();
@@ -2881,10 +2886,11 @@ inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
 		return oh;
 	} else {
 		objectAllocaterLocalCurrent[slabIndex] = nullptr;
-		MemoryAllocaterList allocaterListTemp;
-		allocaterListTemp.prepend(oa);
+		//MemoryAllocaterList allocaterListTemp;
+		//allocaterListTemp.prepend(oa);
 		AtomicMemoryAllocaterList* allocaterList = &objectAllocaterLocal[slabIndex];
 		AtomicMemoryAllocaterList* allocaterListPending = &objectAllocaterLocalPending[slabIndex];
+		allocaterListPending->prepend(oa);
 		oa = allocaterList->removeFirst();
 		while (oa != nullptr) {
 			oh = oa->allocObject();
@@ -2892,32 +2898,38 @@ inline ObjectHead* LocalController::allocLocalObject0(int64_t size) {
 				objectAllocaterLocalCurrent[slabIndex] = oa;
 				break;
 			}
-			allocaterListTemp.prepend(oa);
+			allocaterListPending->prepend(oa);
 			oa = allocaterList->removeFirst();
 		}
+		//if (oh == nullptr) {
+		//	oa = allocaterListPending->removeFirst();
+		//	while (oa != nullptr) {
+		//		oh = oa->allocObject();
+		//		if (oh != nullptr) {
+		//			objectAllocaterLocalCurrent[slabIndex] = oa;
+		//			break;
+		//		}
+		//		allocaterListTemp.prepend(oa);
+		//		oa = allocaterListPending->removeFirst();
+		//	}
+		//}
 		if (oh == nullptr) {
-			oa = allocaterListPending->removeFirst();
-			while (oa != nullptr) {
-				oh = oa->allocObject();
-				if (oh != nullptr) {
-					objectAllocaterLocalCurrent[slabIndex] = oa;
-					break;
+			for (int i = 0; i < 5; i++) {
+				oa = createAllocater(slabIndex);
+				if (oa != nullptr) {
+					oh = oa->allocObject();
+					if (oh != nullptr) {
+						objectAllocaterLocalCurrent[slabIndex] = oa;
+						break;
+					} else {
+						freeAllocater(oa);
+					}
 				}
-				allocaterListTemp.prepend(oa);
-				oa = allocaterListPending->removeFirst();
 			}
 		}
-		if (oh == nullptr) {
-			oa = memoryManager.createAllocater(slabIndex);
-			if (oa != nullptr) {
-				statLocal.allocAllocater();
-				oh = oa->allocObject();
-				objectAllocaterLocalCurrent[slabIndex] = oa;
-			}
-		}
-		if (!allocaterListTemp.isEmpty()) {
-			allocaterListPending->prependAll(allocaterListTemp.first(), allocaterListTemp.last());
-		}
+		//if (!allocaterListTemp.isEmpty()) {
+		//	allocaterListPending->prependList(allocaterListTemp.first(), allocaterListTemp.last());
+		//}
 		/*
 		oa = allocaterListTemp.removeFirst();
 	//	int32_t freedCount = 0;
@@ -3812,7 +3824,7 @@ inline void relist(ObjectHead* listHead, GcType gcType, GcResult* gcResult, Coun
 	}
 	if (list.head != nullptr) {
 		ObjectHead* oh = list.exchange(nullptr);
-		targetList.prependAll(oh, it.getPre());
+		targetList.prependList(oh, it.getPre());
 	}
 	//while (oh != nullptr) {
 	//	ObjectHead* next = oh->next;
@@ -3835,7 +3847,7 @@ inline void prependAll(ObjectHead* listHead, T& targetList) {
 		} else {
 			ListScaner<ObjectHead> scaner;
 			scaner.scan(listHead);
-			targetList.prependAll(scaner.head, scaner.tail);
+			targetList.prependList(scaner.head, scaner.tail);
 		}
 	}
 }
@@ -4673,7 +4685,7 @@ void LocalController::processLocalObject(int8_t liveCode, GcType gcType, GcResul
 				if (i < normalListCount && tails[i - 1] != nullptr) {
 					ObjectHead* head = normalListLocal[i - 1].exchange(nullptr);
 					if (head != nullptr) {
-						normalListLocal[i].prependAll(head, tails[i - 1]);
+						normalListLocal[i].prependList(head, tails[i - 1]);
 					}
 				}
 			}
