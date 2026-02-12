@@ -341,6 +341,14 @@ public:
 		freeBlock(block);
 	}
 
+	virtual MemoryAllocaterType getType() override  {
+		return MemoryAllocaterType_Store;
+	}
+
+	virtual int32_t getId() override {
+		return 0;
+	}
+
 	bool canAlloc() {
 		return freeCount > 0;
 	}
@@ -447,13 +455,6 @@ public:
 		stat->add(size, usedSize);
 	}
 
-	virtual MemoryAllocaterType getType() {
-		return MemoryAllocaterType_Store;
-	}
-
-	virtual int32_t getId() {
-		return 0;
-	}
 	std::atomic<StoredMemoryBlock*> blocks;
 	std::atomic<int64_t> freeCount;
 	std::atomic<MemoryStore*> next = nullptr;
@@ -565,6 +566,14 @@ public:
 		freeingListCount++;
 	}
 
+	virtual MemoryAllocaterType getType() override {
+		return MemoryAllocaterType_Stored;
+	}
+
+	virtual int32_t getId() override {
+		return id;
+	}
+
 	void moveFreeingToFree() {
 		StoredMemoryBlock* freeingListHead = freeingList.exchange(nullptr);
 		if (freeingListHead != nullptr) {
@@ -652,14 +661,6 @@ public:
 		allocedCount--;
 	}
 
-	virtual MemoryAllocaterType getType() {
-		return MemoryAllocaterType_Stored;
-	}
-
-	virtual int32_t getId() {
-		return id;
-	}
-
 	MemoryStore* store;
 	std::atomic<int32_t> allocedCount;
 	SList<StoredMemoryBlock> allocingList;
@@ -681,10 +682,10 @@ public:
 	RawMemoryAllocater(MemoryManager* memoryManager) : memoryManager(memoryManager) {}
 	virtual MemoryBlock* allocBlockOrNull(int64_t payloadSize, bool core);
 	virtual void free(void* m) override;
-	virtual MemoryAllocaterType getType() {
+	virtual MemoryAllocaterType getType() override {
 		return MemoryAllocaterType_Raw;
 	}
-	virtual int32_t getId() {
+	virtual int32_t getId() override {
 		return 0;
 	}
 	MemoryManager* memoryManager;
@@ -695,12 +696,22 @@ class CachedRawMemoryAllocater : public MemoryAllocater {
 public:
 	CachedRawMemoryAllocater(MemoryManager* memoryManager, int64_t payloadSize) : memoryManager(memoryManager), payloadSize(payloadSize) {}
 	void* allocRawOrNull();
+
 	inline void free0(void* m) {
 		StoredMemoryBlock* block = StoredMemoryBlock::fromPayload(m);
 		addCache(block);
 	}
+
 	virtual void free(void* m) override {
 		free0(m);
+	}
+
+	virtual MemoryAllocaterType getType() override {
+		return MemoryAllocaterType_CachedRaw;
+	}
+
+	virtual int32_t getId() override {
+		return 0;
 	}
 
 	StoredMemoryBlock* removeCache() {
@@ -756,13 +767,6 @@ public:
 	void setMinCacheCount(int32_t count) {
 		minCacheCount = count;
 	}
-
-	virtual MemoryAllocaterType getType() {
-		return MemoryAllocaterType_CachedRaw;
-	}
-	virtual int32_t getId() {
-		return 0;
-	}
 private:
 	int64_t payloadSize;
 	std::atomic<StoredMemoryBlock*> removeCacheBlocks;
@@ -778,10 +782,10 @@ public:
 	ObjectMemoryAllocater(MemoryManager* memoryManager) : memoryManager(memoryManager) {}
 	virtual ObjectHead* allocObject(int64_t payloadSize);
 	virtual void free(void* m) override;
-	virtual MemoryAllocaterType getType() {
+	virtual MemoryAllocaterType getType() override {
 		return MemoryAllocaterType_Object;
 	}
-	virtual int32_t getId() {
+	virtual int32_t getId() override {
 		return 0;
 	}
 	MemoryManager* memoryManager;
@@ -820,11 +824,11 @@ public:
 	StaticMemoryAllocater(MemoryManager* memoryManager, int64_t maxBufferSize, int64_t maxAllocSize)
 		: memoryManager(memoryManager), maxBufferSize(maxBufferSize), maxAllocSize(maxAllocSize) {}
 	MemoryBlock* alloc(int64_t payloadSize);
-	virtual void free(void* m);
-	virtual MemoryAllocaterType getType() {
+	virtual void free(void* m) override;
+	virtual MemoryAllocaterType getType() override {
 		return MemoryAllocaterType_Static;
 	}
-	virtual int32_t getId() {
+	virtual int32_t getId() override {
 		return 0;
 	}
 	void stat(MemoryStat* stat) {
