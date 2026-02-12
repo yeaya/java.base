@@ -1913,7 +1913,7 @@ public:
 	}
 
 	void opt() {
-		LocalControllerAtomicList toFreeLocalControllerList;
+		//LocalControllerAtomicList toFreeLocalControllerList;
 		{
 			std::lock_guard lock(mutexGlobal);
 
@@ -1926,20 +1926,23 @@ public:
 					controller->status = LC_STATUS_CLEARING;
 				} else if (controller->status == LC_STATUS_CLEARING) {
 					it.remove();
-					toFreeLocalControllerList.prepend(controller);
+					//toFreeLocalControllerList.prepend(controller);
+					controller->deinit();
+					statLocalHistorySum.add(controller->statLocal);
+					LocalController::free(controller);
 					continue;
 				}
 				it.next();
 			}
 			cvGlobal.notify_all();
 		}
-		LocalController* lc = toFreeLocalControllerList.removeFirst();
-		while (lc != nullptr) {
-			lc->deinit();
-			statLocalHistorySum.add(lc->statLocal);
-			LocalController::free(lc);
-			lc = toFreeLocalControllerList.removeFirst();
-		}
+		//LocalController* lc = toFreeLocalControllerList.removeFirst();
+		//while (lc != nullptr) {
+		//	lc->deinit();
+		//	statLocalHistorySum.add(lc->statLocal);
+		//	LocalController::free(lc);
+		//	lc = toFreeLocalControllerList.removeFirst();
+		//}
 	}
 
 	ObjectList normalListGlobal;
@@ -3849,7 +3852,7 @@ inline void prependAll(ObjectHead* listHead, T& targetList) {
 
 void LocalController::relist4New(GcType gcType, GcResult* gcResult) {
 	CountSize moveSize;
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 1; i++) {
 		{
 			ObjectHead* listHead = newNormalListLocal1.exchange(nullptr);
 			if (gcType != GC_TYPE_FULL) {
