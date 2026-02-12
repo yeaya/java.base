@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  BUILD_TYPE: Release
+  BUILD_TYPE: Debug
   GENERATOR: Ninja
   BUILD_ARGS: -v
   JCPP_LOG_LEVEL: debug
