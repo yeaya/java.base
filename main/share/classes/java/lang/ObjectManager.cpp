@@ -2698,7 +2698,7 @@ void LocalController::optAllocs(bool isFinalFullGc) {
 	for (int i = 0; i < SLAB_COUNT; i++) {
 		StoredMemoryAllocater* allocater = objectAllocaterLocalCurrent[i];
 		if (allocater != nullptr) {
-			allocater->mergeFreeingToFree();
+			allocater->moveFreeingToFree();
 		}
 		int32_t optCount = 0;
 		AtomicMemoryAllocaterList& allocaterList = objectAllocaterLocal[i];
@@ -2712,17 +2712,13 @@ void LocalController::optAllocs(bool isFinalFullGc) {
 					allocater->moveFreeingToStore();
 					allocater->moveFreeToStore();
 				} else {
-					allocater->mergeFreeingToFree();
+					allocater->moveFreeingToFree();
 				}
 				if (allocater->getAllocedCount() == 0 && optCount < maxOptCount) {
 					freeAllocater(allocater);
 					optCount++;
 				} else {
-					//if (allocater->canAlloc()) {
-						allocaterList.prepend(allocater);
-					//} else {
-						//allocaterPendingList.prepend(allocater);
-					//}
+					allocaterList.prepend(allocater);
 				}
 				allocater = listTemp.removeFirst();
 			}
@@ -2732,22 +2728,21 @@ void LocalController::optAllocs(bool isFinalFullGc) {
 			MemoryAllocaterList listTemp(listHead);
 			allocater = listTemp.removeFirst();
 			while (allocater != nullptr) {
-				bool hasFreed = !allocater->freeingList.isEmpty();
-				if (isFinalFullGc) {
-					allocater->moveFreeingToStore();
-					allocater->moveFreeToStore();
-				} else {
-					allocater->mergeFreeingToFree();
-				}
-				if (allocater->getAllocedCount() == 0 && optCount < maxOptCount) {
-					freeAllocater(allocater);
-					optCount++;
-				} else {
-					if (hasFreed || allocater->canAlloc()) {
-						allocaterList.prepend(allocater);
+				if (allocater->freeingListCount > 0) {
+					if (isFinalFullGc) {
+						allocater->moveFreeingToStore();
+						allocater->moveFreeToStore();
 					} else {
-						allocaterPendingList.prepend(allocater);
+						allocater->moveFreeingToFree();
 					}
+					if (allocater->getAllocedCount() == 0 && optCount < maxOptCount) {
+						freeAllocater(allocater);
+						optCount++;
+					} else {
+						allocaterList.prepend(allocater);
+					}
+				} else {
+					allocaterPendingList.prepend(allocater);
 				}
 				allocater = listTemp.removeFirst();
 			}

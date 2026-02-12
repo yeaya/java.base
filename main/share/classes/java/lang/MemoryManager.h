@@ -565,14 +565,13 @@ public:
 		freeingListCount++;
 	}
 
-	void mergeFreeingToFree() {
+	void moveFreeingToFree() {
 		StoredMemoryBlock* freeingListHead = freeingList.exchange(nullptr);
 		if (freeingListHead != nullptr) {
 			StoredMemoryBlock* cacheOldListHead = freeList.exchange(nullptr);
 			StoredMemoryBlock* mergedListHead = nullptr;
 			if (cacheOldListHead != nullptr) {
 				if (freeingListCount <= freeListCount) {
-					//scaner.scan(freeingListHead);
 					freeingListTail->next = cacheOldListHead;
 					mergedListHead = freeingListHead;
 				} else {
@@ -606,28 +605,12 @@ public:
 	}
 
 	void moveFreeToStore() {
-			StoredMemoryBlock* freeListHead = freeList.exchange(nullptr);
-			//StoredMemoryBlock* mergedListHead = nullptr;
-			//if (cacheOldListHead != nullptr) {
-			//	ListScaner<StoredMemoryBlock> scaner;
-			//	if (freeingListCount <= freeListCount) {
-			//		scaner.scan(freeingListHead);
-			//		scaner.tail->next = cacheOldListHead;
-			//	} else {
-			//		scaner.scan(cacheOldListHead);
-			//		scaner.tail->next = freeingListHead;
-			//	}
-			//	mergedListHead = scaner.head;
-			//} else {
-			//	mergedListHead = freeingListHead;
-			//}
-			//freeingListTail = nullptr;
-			if (freeListHead != nullptr) {
-				int32_t freedCount = store->freeBlocks(freeListHead);
-				allocedCount -= freedCount;
-			}
-			//freeingListCount = 0;
-		//}
+		StoredMemoryBlock* freeListHead = freeList.exchange(nullptr);
+		if (freeListHead != nullptr) {
+			int32_t freedCount = store->freeBlocks(freeListHead);
+			allocedCount -= freedCount;
+			freeListCount = 0;
+		}
 	}
 
 	void flush() {
