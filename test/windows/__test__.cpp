@@ -1710,7 +1710,7 @@ void TestCases::runCases() {
 	run("ReadAfterReset", ::ReadAfterReset, true);
 	run("ReadAhead", ::ReadAhead);
 	run("ReadByte", ::ReadByte);
-	run("ReadBytesBounds", ::ReadBytesBounds);
+	run("ReadBytesBounds", ::ReadBytesBounds, true);
 	run("ReadCloseRaceNPE", ::ReadCloseRaceNPE);
 	run("ReadFull", ::ReadFull);
 	run("ReadFully", ::ReadFully, true);
